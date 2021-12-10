@@ -15,7 +15,7 @@ Please cite this paper if you use our code or data.
 
 ## The XWikis Corpus
 
-**You can create the corpus using the instructions below. The original XWikis corpus is available at [XWikis]().**
+**You can create the corpus using the instructions below. The original XWikis Corpus is available in [this data repository](https://datashare.ed.ac.uk/handle/10283/4188).**
 
 Instructions to re-create our corpus and extract other languages are available [here](./XWikis-Corpus).
 
