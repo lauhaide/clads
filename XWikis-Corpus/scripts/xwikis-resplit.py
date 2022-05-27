@@ -31,7 +31,6 @@ def run(args):
                     if not s.strip() in sTestTitles and not t.strip() in tTestTitles]
     srcTitlesFile.seek(0)
     tgtTitlesFile.seek(0)
-    pbar = tqdm(total=len(srctgtTitles))
     print(" * Split remaining {}".format(len(srctgtTitles)))
 
     srcDocFile = open(os.path.join(RAW_FOLDER, "final/{}_{}_src_documents.txt".format(SRCLANG, TGTLANG)), 'r')
@@ -54,25 +53,33 @@ def run(args):
 
     examples = np.arange(len(srctgtTitles))
     indices = np.random.permutation(examples.shape[0])
-    training_idx, val_idx =  np.split(indices, [int(.95 * len(examples))])
+    #training_idx, val_idx =  np.split(indices, [int(.95 * len(examples))])
+    split_pos = int(.95 * len(examples))
+    if (len(examples) - split_pos) > 10000:
+        split_pos = len(examples) - 10000
+    if (len(examples) - split_pos) < 5000:
+        split_pos = len(examples) - 5000
+
+    training_idx, val_idx =  np.split(indices, [split_pos])
+
 
     srcTrain = list(np.array(srctgtTitles)[:,0][training_idx.astype(int)])
-    tgtTrain = list(np.array(srctgtTitles)[:,1][training_idx.astype(int)])
     srcVal = list(np.array(srctgtTitles)[:,0][val_idx.astype(int)])
-    tgtVal = list(np.array(srctgtTitles)[:,1][val_idx.astype(int)])
 
     print("Splits' size: train/val {}/{}".format(len(srcTrain), len(srcVal)))
 
-    for i, (s, t) in enumerate(srctgtTitles):
-        st = srcTitlesFile.readline()
+    assert len(srctgtTitles) == len(srcTrain) + len(srcVal)
+
+    pbar = tqdm(total=totalNbInst)
+    for i, st in enumerate(srcTitlesFile.readlines()):
         tt = tgtTitlesFile.readline()
         sd = srcDocFile.readline()
         ss = srcSumFile.readline()
         ts = tgtSumFile.readline()
 
-        if s in srcTrain:
+        if st.strip() in srcTrain:
             currentSplit = 'train'
-        elif s in srcVal:
+        elif st.strip() in srcVal:
             currentSplit = 'val'
         else:
             continue
