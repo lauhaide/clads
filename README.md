@@ -15,10 +15,11 @@ Please cite this paper if you use our code or data.
 
 ## The XWikis Corpus
 
-**You can create the corpus using the instructions below. The original XWikis Corpus is available in [this data repository](https://datashare.ed.ac.uk/handle/10283/4188).**
+**Our XWikis corpus is now on HuggingFace datasets. Follow [this link](https://huggingface.co/datasets/GEM/xwikis) to find all language subsets available for download.**
 
-Instructions to re-create our corpus and extract other languages are available [here](./XWikis-Corpus).
+The original XWikis corpus is available at [XWikis Corpus](https://datashare.ed.ac.uk/handle/10283/4188).
 
+Instructions to re-create our corpus and extract different languages are available [here](./XWikis-Corpus).
 
 
 ## Cross-lingual Summarisation Code
