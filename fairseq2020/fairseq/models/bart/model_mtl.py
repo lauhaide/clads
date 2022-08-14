@@ -87,7 +87,7 @@ class BARTMtlModel(TransformerModel):
                 else:
                     transformer.register_classification_task(task, transformer.task_dict[task])
 
-        transformer.decoder.register_output_project_cvt()
+        #transformer.decoder.register_output_project_cvt()
 
         return transformer
 
