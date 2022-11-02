@@ -32,7 +32,7 @@ def generateRankedParagraphsPara(args):
     trnk = LexRank(textLines, stopwords=STOPWORDS[args.lang])
     print("LexRank loaded...")
 
-    MAX_TOKENS = 600
+    MAX_TOKENS = args.L
 
     for doc in textLines:
         #print(len(doc.strip().split('<p>')))
