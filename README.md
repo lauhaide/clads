@@ -15,7 +15,8 @@ Please cite this paper if you use our code or data.
 
 ## The XWikis Corpus
 
-**Our XWikis corpus is now on HuggingFace datasets. Follow [this link](https://huggingface.co/datasets/GEM/xwikis) to find all language subsets available for download.**
+**Our XWikis corpus is now on HuggingFace datasets. Follow [this link](https://huggingface.co/datasets/GEM/xwikis) to find all language subsets available for download.** 
+Thank you to [Ronald Cardenas](https://ronaldahmed.github.io/) for helping to upload to HF and Huajian Zhang and Guangyu Li for adding Chinese subsets. 
 
 The original XWikis corpus is available at [XWikis Corpus](https://datashare.ed.ac.uk/handle/10283/4188).
 
